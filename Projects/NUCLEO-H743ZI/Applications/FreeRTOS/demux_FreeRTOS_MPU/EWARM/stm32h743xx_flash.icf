@@ -4,6 +4,7 @@
 /*-Specials-*/
 define symbol __ICFEDIT_intvec_start__ = 0x08000000;
 /*-Memory Regions-*/
+/* ORIGINAL MAP:
 define symbol __ICFEDIT_region_ROM_start__     = 0x08004000;
 define symbol __ICFEDIT_region_ROM_end__       = 0x081FFFFF;
 define symbol __ICFEDIT_region_Privileged_ROM_start__  = 0x08000000;
@@ -12,6 +13,18 @@ define symbol __ICFEDIT_region_RAM_start__     = 0x20000200;
 define symbol __ICFEDIT_region_RAM_end__       = 0x2000FFFF;
 define symbol __ICFEDIT_region_Privileged_RAM_start__    = 0x20000000;
 define symbol __ICFEDIT_region_Privileged_RAM_end__      = 0x200001FF;
+define symbol __ICFEDIT_region_ITCMRAM_start__ = 0x00000000;
+define symbol __ICFEDIT_region_ITCMRAM_end__   = 0x0000FFFF;
+*/
+/* AXI all-in. Overlapping memory regions for priv/unpriv regions */
+define symbol __ICFEDIT_region_ROM_start__     = 0x08004000;
+define symbol __ICFEDIT_region_ROM_end__       = 0x081FFFFF;
+define symbol __ICFEDIT_region_Privileged_ROM_start__  = 0x08000000;
+define symbol __ICFEDIT_region_Privileged_ROM_end__    = 0x08003FFF;
+define symbol __ICFEDIT_region_RAM_start__     = 0x24000200;
+define symbol __ICFEDIT_region_RAM_end__       = 0x2400FFFF;
+define symbol __ICFEDIT_region_Privileged_RAM_start__  = 0x24000000;
+define symbol __ICFEDIT_region_Privileged_RAM_end__    = 0x240001FF;
 define symbol __ICFEDIT_region_ITCMRAM_start__ = 0x00000000;
 define symbol __ICFEDIT_region_ITCMRAM_end__   = 0x0000FFFF;
 /*-Sizes-*/

@@ -131,6 +131,7 @@ extern uint32_t __privileged_functions_end__[];
 extern uint32_t __privileged_data_start__[];
 extern uint32_t __privileged_data_end__[];
 #else
+/* Original memory map:
 const uint32_t * __FLASH_segment_start__ = ( uint32_t * ) 0x08000000UL;
 const uint32_t * __FLASH_segment_end__ = ( uint32_t * ) 0x081FFFFFUL;
 const uint32_t * __SRAM_segment_start__ = ( uint32_t * ) 0x20000000UL;
@@ -139,6 +140,15 @@ const uint32_t * __privileged_functions_start__ = ( uint32_t * ) 0x08000000UL;
 const uint32_t * __privileged_functions_end__ = ( uint32_t * ) 0x08003FFFUL;
 const uint32_t * __privileged_data_start__ = ( uint32_t * ) 0x20000000UL;
 const uint32_t * __privileged_data_end__ = ( uint32_t * ) 0x200001FFUL;
+*/
+const uint32_t *__FLASH_segment_start__        = ( uint32_t * )0x08000000UL;
+const uint32_t *__FLASH_segment_end__          = ( uint32_t * )0x081FFFFFUL;
+const uint32_t *__privileged_data_start__      = ( uint32_t * )0x24000000UL;
+const uint32_t *__privileged_data_end__        = ( uint32_t * )0x240001FFUL;
+const uint32_t *__SRAM_segment_start__         = ( uint32_t * )0x24000000UL;
+const uint32_t *__SRAM_segment_end__           = ( uint32_t * )0x2400FFFFUL;
+const uint32_t *__privileged_functions_start__ = ( uint32_t * )0x08000000UL;
+const uint32_t *__privileged_functions_end__   = ( uint32_t * )0x08003FFFUL;
 #endif
 
 /* Data used by the 'Check' task. ---------------------------*/
