@@ -75,7 +75,11 @@ task.h is included from an application file. */
 #define portMPU_REGION_BASE_ADDRESS_REG			( * ( ( volatile uint32_t * ) 0xe000ed9C ) )
 #define portMPU_REGION_ATTRIBUTE_REG			( * ( ( volatile uint32_t * ) 0xe000edA0 ) )
 #define portMPU_CTRL_REG						( * ( ( volatile uint32_t * ) 0xe000ed94 ) )
-#define portEXPECTED_MPU_TYPE_VALUE				( 8UL << 8UL ) /* 8 regions, unified. */
+#if defined(CORE_CM4)
+    #define portEXPECTED_MPU_TYPE_VALUE			( 8UL << 8UL ) /* 8 regions, unified. */
+#else
+    #define portEXPECTED_MPU_TYPE_VALUE			( 16UL << 8UL ) /* 16 regions, unified. */
+#endif
 #define portMPU_ENABLE							( 0x01UL )
 #define portMPU_BACKGROUND_ENABLE				( 1UL << 2UL )
 #define portPRIVILEGED_EXECUTION_START_ADDRESS	( 0UL )
